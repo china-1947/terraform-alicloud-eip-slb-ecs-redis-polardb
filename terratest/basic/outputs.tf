@@ -5,7 +5,6 @@ output "this_vpc_id" {
 output "this_vswitch_id" {
   value = var.vswitch_id
 }
-
 output "this_security_group_id" {
   value = alicloud_security_group.default.id
 }

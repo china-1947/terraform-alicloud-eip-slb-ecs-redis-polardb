@@ -17,8 +17,8 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 	description := "tf-eip-slb-ecs-rds-description"
 	availableDiskCategory := "cloud_efficiency"
 	availableResourceCreation := "PolarDB"
-	vpcCidrBlock := "192.168.0.0/16"
-	vswitchCidrBlock := "192.168.1.0/24"
+	vpcId := "456"
+	vswitchId := "123"
 	instanceType := "ecs.n4.large"
 	systemDiskCategory := "cloud_efficiency"
 	systemDiskName := "system_disk"
@@ -40,20 +40,20 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 	eipBandwidth := "10"
 	eipInternetChargeType := "PayByBandwidth"
 
-	redisInstanceName:="redisTestName"
-	redisInstanceType:="Redis"
-	redisEngineVersion:="4.0"
-	redisAppendonly:="yes"
-	redisLazyfreeLazyEviction:="yes"
-	zoneId:= "cn-hangzhou-g"
-	redisInstanceClass:="redis.master.large.default"
+	redisInstanceName := "redisTestName"
+	redisInstanceType := "Redis"
+	redisEngineVersion := "4.0"
+	redisAppendonly := "yes"
+	redisLazyfreeLazyEviction := "yes"
+	zoneId := "cn-hangzhou-g"
+	redisInstanceClass := "redis.master.large.default"
 
-	polarDbType:= "MySQL"
-	polarDbVersion:=  "8.0"
-	polarDbPayType:= "PostPaid"
-	polarDbNodeClass:= "polar.mysql.x4.large"
-    polarDbClusterDescription:="testDB for description"
-	dbName:="tf_test_database"
+	polarDbType := "MySQL"
+	polarDbVersion := "8.0"
+	polarDbPayType := "PostPaid"
+	polarDbNodeClass := "polar.mysql.x4.large"
+	polarDbClusterDescription := "testDB for description"
+	dbName := "tf_test_database"
 
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
@@ -65,8 +65,8 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 			"description":                 description,
 			"available_disk_category":     availableDiskCategory,
 			"available_resource_creation": availableResourceCreation,
-			"vpc_cidr_block":              vpcCidrBlock,
-			"vswitch_cidr_block":          vswitchCidrBlock,
+			"vpc_id":                      vpcId,
+			"vswitch_id":                  vswitchId,
 			"instance_type":               instanceType,
 			"system_disk_category":        systemDiskCategory,
 			"system_disk_name":            systemDiskName,
@@ -88,26 +88,24 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 			"eip_bandwidth":               eipBandwidth,
 			"eip_internet_charge_type":    eipInternetChargeType,
 
-			"redis_instance_name":    redisInstanceName,
-			"redis_instance_type":    redisInstanceType,
-			"redis_appendonly":    redisAppendonly,
-			"redis_lazyfree-lazy-eviction":    redisLazyfreeLazyEviction,
-			"redis_engine_version":    redisEngineVersion,
-			"zone_id":    zoneId,
-			"redis_instance_class":    redisInstanceClass,
-			"db_type" : polarDbType,
-			"db_version" : polarDbVersion,
-			"pay_type" : polarDbPayType,
-			"db_node_class" : polarDbNodeClass,
-			"pollardb_description" : polarDbClusterDescription,
-			"db_name"       : dbName,
-
+			"redis_instance_name":          redisInstanceName,
+			"redis_instance_type":          redisInstanceType,
+			"redis_appendonly":             redisAppendonly,
+			"redis_lazyfree-lazy-eviction": redisLazyfreeLazyEviction,
+			"redis_engine_version":         redisEngineVersion,
+			"zone_id":                      zoneId,
+			"redis_instance_class":         redisInstanceClass,
+			"db_type":                      polarDbType,
+			"db_version":                   polarDbVersion,
+			"pay_type":                     polarDbPayType,
+			"db_node_class":                polarDbNodeClass,
+			"pollardb_description":         polarDbClusterDescription,
+			"db_name":                      dbName,
 		},
 
 		// Disable colors in Terraform commands, so it's easier to parse stdout/stderr
 		NoColor: true,
 	}
-
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
 	defer terraform.Destroy(t, terraformOptions)
@@ -129,5 +127,5 @@ func TestTerraformBasicExampleNew(t *testing.T) {
 	assert.Equal(t, thisDbInstanceType, thisDbInstanceType)
 	assert.Equal(t, thisSlbAddressType, slbAddressType)
 	assert.Equal(t, thisEipInternetChargeType, eipInternetChargeType)
-	assert.Equal(t, thisRedisInstanceName,redisInstanceName)
+	assert.Equal(t, thisRedisInstanceName, redisInstanceName)
 }

@@ -13,7 +13,7 @@ variable "description" {
 variable "zone_id" {
   description = "The specification of zone msg."
   type        = string
-  default     = "cn-hangzhou-g"
+  default     = "cn-hangzhou-c"
 }
 
 variable "vpc_id" {
@@ -24,7 +24,7 @@ variable "vpc_id" {
 variable "vswitch_id" {
   description = "The specification of vswitch_id."
   type        = string
-  default     = "testab1234"
+  default     = "vsw-bp1myuibjewdfrge968w3"
 }
 
 variable "available_disk_category" {

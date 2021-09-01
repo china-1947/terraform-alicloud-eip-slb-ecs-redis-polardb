@@ -1,4 +1,4 @@
-Alicloud EIP&SLB&ECS&RDS Terraform Module On Alibaba Cloud
+Terraform module which creates  EIP&SLB&ECS&RDS instance On Alibaba Cloud
 
 terraform-alicloud-eip-slb-ecs-redis-polardb
 ---
@@ -20,13 +20,13 @@ terraform-alicloud-eip-slb-ecs-redis-polardb
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | > = 0.13.0 |
-| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.131.0 |
+| <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | > = 1.56.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.131.0 |
+| <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.56.0 |
 
 ## 用法
 

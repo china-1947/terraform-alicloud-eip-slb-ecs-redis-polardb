@@ -34,13 +34,9 @@ These types of resources are supported:
 
 ```hcl
 module "tf-eip-slb-ecs-redis-polardb" {
-  profile           = "Your-Profile-Name"
-  region            = "cn-shenzhen"
   source            = "terraform-alicloud-modules/eip-slb-ecs-redis-polardb/alicloud"
-  name              = "tf-eip-slb-ecs-redis-polar_db"
-  instance_type     = "ecs.n4.large"
-  polar_db_instance_type = "polar.mysql.x4.large"
   slb_address_type  = "intranet"
+  vswitch_id        = "123"
 }
 ```
 

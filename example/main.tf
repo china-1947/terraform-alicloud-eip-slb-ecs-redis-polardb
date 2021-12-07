@@ -19,4 +19,6 @@ resource "alicloud_vswitch" "default" {
 module "example" {
   source             = "../"
   vswitch_id            = alicloud_vswitch.default.id
+  vpc_id                = alicloud_vpc.default.id
+  zone_id               = data.alicloud_zones.default.zones.0.id
 }
